@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose; // Grab the schema object from mongoose
 require('dotenv').config()
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.nonsu.mongodb.net/netflix-api-db-dev?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.awx9j.mongodb.net/netflix-db?retryWrites=true&w=majority`, {
   useCreateIndex: true,
   useUnifiedTopology: true,
   useNewUrlParser: true
