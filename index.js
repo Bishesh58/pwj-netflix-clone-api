@@ -1,9 +1,13 @@
 const express = require('express') // importing express
+var cors = require('cors');
 const app = express() // initialize express
 const port = 3000 //setting the port 
 const mongoose = require('mongoose');
 const { Schema } = mongoose; // Grab the schema object from mongoose
 require('dotenv').config()
+
+app.use(cors())
+app.use(express.json());
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.awx9j.mongodb.net/netflix-db?retryWrites=true&w=majority`, {
   useCreateIndex: true,
@@ -26,7 +30,7 @@ const User = mongoose.model('Users', new Schema(
   }
 ));
 
-app.use(express.json());
+
 
 // using the get method
 // LOGIC for the Get Request
@@ -66,9 +70,7 @@ app.post('/login', (req, res) => {
         status: "valid"
       });
     } else {
-      res.send(404, {
-        status: "Not Found"
-      })
+      res.status(404).send("not valid") 
     }
   })
 })
