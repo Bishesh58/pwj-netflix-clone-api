@@ -45,7 +45,6 @@ app.post('/register', (req, res)=>{
     email: req.body.email,
     password: req.body.password
   })
-
   newUser.save((err, user)=>{
     if(err){
       console.log(err);
@@ -58,6 +57,7 @@ app.post('/register', (req, res)=>{
       res.send("registered")
     }
   })
+  
 })
 
 app.post('/login', (req, res) => {
