@@ -52,9 +52,9 @@ app.post('/register', (req, res)=>{
         status: err
       })
     } else {
-      console.log("all is good");
-      console.log(user);
-      res.send("registered")
+        res.send({
+          status: "registered"
+        })
     }
   })
   
